@@ -1,5 +1,9 @@
 // Node.js script to process pending uploads:
 // JPG -> SVG (Inkscape) -> DST (Ink/Stitch) and update uploads.json
+// Preflight reminders:
+// 1) uploads.json entries must be status: "pending"
+// 2) upload_path must point to a file that exists in /uploads
+// 3) inkscape and inkstitch-cli must be available on PATH
 
 const fs = require('fs');
 const path = require('path');
@@ -29,6 +33,27 @@ if (fs.existsSync(uploadsJsonPath)) {
   process.exit(0);
 }
 
+// Preflight: verify required tools
+function checkTool(cmd, args = ['--version']) {
+  try {
+    execSync([cmd, ...args].join(' '), { stdio: 'ignore' });
+    return true;
+  } catch (err) {
+    console.error(`Missing or unavailable CLI tool: ${cmd}. Error: ${err.message}`);
+    return false;
+  }
+}
+
+const hasInkscape = checkTool('inkscape');
+const hasInkStitch = checkTool('inkstitch-cli', ['--help']);
+
+if (!hasInkscape || !hasInkStitch) {
+  console.error('\nPreflight failed. Please ensure these commands work and rerun:');
+  console.error('  inkscape --version');
+  console.error('  inkstitch-cli --help\n');
+  process.exit(1);
+}
+
 // Helper to safe path -> absolute
 function toAbsoluteUploadPath(uploadPath) {
   // upload_path in JSON is like "uploads/xxxx.jpg"
@@ -38,6 +63,9 @@ function toAbsoluteUploadPath(uploadPath) {
   return path.join(projectRoot, uploadPath);
 }
 
+let processedCount = 0;
+let skippedCount = 0;
+
 // Process pending uploads
 uploads.forEach((entry, index) => {
   if (entry.status === 'pending') {
@@ -46,6 +74,8 @@ uploads.forEach((entry, index) => {
 
       if (!fs.existsSync(inputFile)) {
         console.error(`Input file does not exist: ${inputFile}`);
+        uploads[index].status = 'error';
+        uploads[index].updated_at = new Date().toISOString();
         return;
       }
 
@@ -97,6 +127,7 @@ uploads.forEach((entry, index) => {
       uploads[index].dst_path = path.relative(projectRoot, dstFile);
       uploads[index].status = 'ready';
       uploads[index].updated_at = new Date().toISOString();
+      processedCount += 1;
 
       console.log(`DST generated: ${dstFile}`);
     } catch (err) {
@@ -105,13 +136,15 @@ uploads.forEach((entry, index) => {
       uploads[index].status = 'error';
       uploads[index].updated_at = new Date().toISOString();
     }
+  } else {
+    skippedCount += 1;
   }
 });
 
 // Save updated JSON
 try {
   fs.writeFileSync(uploadsJsonPath, JSON.stringify(uploads, null, 2));
-  console.log('\nAll pending uploads processed.');
+  console.log(`\nProcessing complete. Ready: ${processedCount}, Skipped (non-pending): ${skippedCount}`);
 } catch (err) {
   console.error('Failed to write uploads.json:', err);
   process.exit(1);

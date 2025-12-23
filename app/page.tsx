@@ -34,11 +34,19 @@ export default function Home() {
     };
   }, [imagePreview]);
 
-  // Debug: Log when imagePreview changes
+  // Debug: Log when imagePreview changes (client-side only)
   useEffect(() => {
-    console.log('imagePreview changed:', imagePreview ? 'Has preview' : 'No preview');
-    console.log('fileName:', fileName);
-    console.log('formData.file:', formData.file ? formData.file.name : 'null');
+    if (typeof window !== 'undefined') {
+      try {
+        console.log('imagePreview changed:', imagePreview ? 'Has preview' : 'No preview');
+        console.log('fileName:', fileName);
+        if (formData.file) {
+          console.log('formData.file:', formData.file.name);
+        }
+      } catch (err) {
+        // Silently ignore debug errors
+      }
+    }
   }, [imagePreview, fileName, formData.file]);
 
   const handleFileSelect = (file: File) => {
@@ -347,6 +355,7 @@ export default function Home() {
                 >
                   {imagePreview ? (
                     <div className="w-full">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={imagePreview}
                         alt="Preview"
@@ -422,7 +431,7 @@ export default function Home() {
               {submitSuccess && (
                 <div className="bg-slate-800/70 border border-sky-600 text-sky-100 px-4 py-3 rounded-lg shadow">
                   <p className="font-medium">✅ Upload successful!</p>
-                  <p className="text-sm mt-1 text-slate-200">Your design has been submitted. We'll process it and send you the DST file via email.</p>
+                  <p className="text-sm mt-1 text-slate-200">Your design has been submitted. We&apos;ll process it and send you the DST file via email.</p>
                 </div>
               )}
 
