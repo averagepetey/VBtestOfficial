@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "watcher": "ts-node scripts/watcher.ts",
+    "convert": "ts-node scripts/convert-dst.ts",
+    "notify": "ts-node scripts/notify-clients.ts",
+    "automate": "ts-node scripts/automate.ts"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -22,9 +26,12 @@
     "eslint-config-next": "^14.0.4",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
+
 }
+
 
 
 
