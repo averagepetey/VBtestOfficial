@@ -205,18 +205,18 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100 flex flex-col">
       {/* Header / Hero Section */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-slate-900/60 backdrop-blur shadow-sm border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center">
-            <h1 className="text-5xl font-bold text-gray-900 mb-3">
+            <h1 className="text-5xl font-bold text-white mb-3">
               JPG → DST Converter
             </h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-slate-200">
               Convert your designs to DST files quickly and reliably
             </p>
-            <p className="text-sm text-gray-500 mt-2 max-w-2xl mx-auto">
+            <p className="text-sm text-slate-300 mt-2 max-w-2xl mx-auto">
               Perfect for print shops and embroidery clients. Transform your JPG images into 
               professional DST embroidery files with our automated digitization service.
             </p>
@@ -225,19 +225,19 @@ export default function Home() {
       </header>
 
       {/* How It Works Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-slate-900/40 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-bold text-center text-white mb-12">
             How It Works
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {/* Step 1 */}
             <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">1</span>
+              <div className="bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-700">
+                <span className="text-2xl font-bold text-sky-400">1</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Upload JPG</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-white mb-2">Upload JPG</h3>
+              <p className="text-slate-300">
                 Upload your JPG image file through our simple form. Include your design details 
                 and contact information.
               </p>
@@ -245,11 +245,11 @@ export default function Home() {
 
             {/* Step 2 */}
             <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">2</span>
+              <div className="bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-700">
+                <span className="text-2xl font-bold text-sky-400">2</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Auto-digitize</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-white mb-2">Auto-digitize</h3>
+              <p className="text-slate-300">
                 Our system automatically converts your image into a DST embroidery file format, 
                 ready for your embroidery machine.
               </p>
@@ -257,11 +257,11 @@ export default function Home() {
 
             {/* Step 3 */}
             <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">3</span>
+              <div className="bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-700">
+                <span className="text-2xl font-bold text-sky-400">3</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Receive DST file</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-white mb-2">Receive DST file</h3>
+              <p className="text-slate-300">
                 Download your converted DST file via email. Your design is ready to use with 
                 standard embroidery equipment.
               </p>
@@ -271,16 +271,16 @@ export default function Home() {
       </section>
 
       {/* Upload Form Section */}
-      <section className="py-16 bg-gray-50 flex-grow">
+      <section className="py-16 bg-slate-950 flex-grow">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+          <div className="bg-slate-900/70 border border-slate-800 rounded-lg shadow-xl p-8">
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">
               Upload Your Design
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-slate-200 mb-2">
                   Your Name
                 </label>
                 <input
@@ -291,13 +291,13 @@ export default function Home() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition text-black"
+                  className="w-full px-4 py-2 border border-slate-700 bg-slate-900 text-white rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition"
                 />
               </div>
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-slate-200 mb-2">
                   Your Email
                 </label>
                 <input
@@ -308,13 +308,13 @@ export default function Home() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition text-black"
+                  className="w-full px-4 py-2 border border-slate-700 bg-slate-900 text-white rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition"
                 />
               </div>
 
               {/* Design Description Field */}
               <div>
-                <label htmlFor="design" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="design" className="block text-sm font-medium text-slate-200 mb-2">
                   Design Name / Description
                 </label>
                 <input
@@ -325,24 +325,24 @@ export default function Home() {
                   value={formData.design}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition text-black"
+                  className="w-full px-4 py-2 border border-slate-700 bg-slate-900 text-white rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition"
                 />
               </div>
 
               {/* File Upload Field */}
               <div>
-                <label htmlFor="file-upload" className="block text-sm font-medium text-gray-700 mb-2">
-                  JPG Image File {fileName && <span className="text-green-600">✓ {fileName}</span>}
+                <label htmlFor="file-upload" className="block text-sm font-medium text-slate-200 mb-2">
+                  JPG Image File {fileName && <span className="text-sky-400">✓ {fileName}</span>}
                 </label>
                 <div
                   onDragOver={handleDragOver}
                   onDrop={handleDrop}
                   className={`mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed rounded-lg transition relative ${
                     imagePreview 
-                      ? 'border-green-400 bg-green-50' 
+                      ? 'border-sky-500 bg-slate-800/60' 
                       : fileError 
-                        ? 'border-red-300' 
-                        : 'border-gray-300 hover:border-blue-400'
+                        ? 'border-red-400 bg-slate-900/60' 
+                        : 'border-slate-700 hover:border-sky-500 bg-slate-900/40'
                   }`}
                 >
                   {imagePreview ? (
@@ -350,17 +350,17 @@ export default function Home() {
                       <img
                         src={imagePreview}
                         alt="Preview"
-                        className="max-h-64 mx-auto rounded-lg object-contain shadow-md"
+                        className="max-h-64 mx-auto rounded-lg object-contain shadow-lg"
                         onError={(e) => {
                           console.error('Image preview failed to load');
                           setImagePreview(null);
                         }}
                       />
                       <div className="mt-4 text-center">
-                        <p className="text-sm text-green-600 font-medium">{fileName}</p>
+                        <p className="text-sm text-sky-300 font-medium">{fileName}</p>
                         <label
                           htmlFor="file-change"
-                          className="mt-2 inline-block text-sm text-blue-600 hover:text-blue-500 cursor-pointer underline"
+                          className="mt-2 inline-block text-sm text-sky-400 hover:text-sky-300 cursor-pointer underline"
                         >
                           Change image
                         </label>
@@ -378,7 +378,7 @@ export default function Home() {
                   ) : (
                     <div className="space-y-1 text-center">
                       <svg
-                        className="mx-auto h-12 w-12 text-gray-400"
+                        className="mx-auto h-12 w-12 text-slate-400"
                         stroke="currentColor"
                         fill="none"
                         viewBox="0 0 48 48"
@@ -391,10 +391,10 @@ export default function Home() {
                           strokeLinejoin="round"
                         />
                       </svg>
-                      <div className="flex text-sm text-gray-600">
+                      <div className="flex text-sm text-slate-300">
                         <label
                           htmlFor="file-upload"
-                          className="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
+                          className="relative cursor-pointer bg-slate-800 rounded-md font-medium text-sky-400 hover:text-sky-300 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-sky-500"
                         >
                           <span>Upload a file</span>
                         <input
@@ -407,22 +407,22 @@ export default function Home() {
                           className="sr-only"
                         />
                         </label>
-                        <p className="pl-1">or drag and drop</p>
+                        <p className="pl-1 text-slate-400">or drag and drop</p>
                       </div>
-                      <p className="text-xs text-gray-500">JPG, JPEG, or PNG up to 10MB</p>
+                      <p className="text-xs text-slate-400">JPG, JPEG, or PNG up to 10MB</p>
                     </div>
                   )}
                 </div>
                 {fileError && !formData.file && (
-                  <p className="mt-2 text-sm text-red-600">{fileError}</p>
+                  <p className="mt-2 text-sm text-red-400">{fileError}</p>
                 )}
               </div>
 
               {/* Success Message */}
               {submitSuccess && (
-                <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+                <div className="bg-slate-800/70 border border-sky-600 text-sky-100 px-4 py-3 rounded-lg shadow">
                   <p className="font-medium">✅ Upload successful!</p>
-                  <p className="text-sm mt-1">Your design has been submitted. We'll process it and send you the DST file via email.</p>
+                  <p className="text-sm mt-1 text-slate-200">Your design has been submitted. We'll process it and send you the DST file via email.</p>
                 </div>
               )}
 
@@ -430,7 +430,7 @@ export default function Home() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-sky-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-slate-900 transition duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Uploading...' : 'Submit Design'}
               </button>
@@ -440,25 +440,25 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-8">
+      <footer className="bg-slate-900 text-slate-200 py-8 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-white font-semibold mb-3">Contact</h3>
-              <p className="text-sm">
+              <p className="text-sm text-slate-300">
                 Need help? Reach out to us for support with your conversions.
               </p>
             </div>
             <div>
               <h3 className="text-white font-semibold mb-3">Important Note</h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-slate-400">
                 Auto-digitization may require manual correction for complex designs. 
                 Results may vary based on image quality and design complexity. 
                 We recommend reviewing your DST file before production use.
               </p>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
+          <div className="mt-8 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
             <p>&copy; {new Date().getFullYear()} JPG → DST Converter. All rights reserved.</p>
           </div>
         </div>
