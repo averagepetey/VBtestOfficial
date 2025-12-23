@@ -5,8 +5,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Next.js Starter',
-  description: 'A modern Next.js starter template',
+  title: 'JPG → DST Converter | Fast Embroidery File Conversion',
+  description: 'Convert your JPG designs to DST files quickly and reliably. Perfect for print shops and embroidery clients.',
 }
 
 export default function RootLayout({
