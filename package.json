@@ -1,0 +1,16 @@
+{
+  "name": "jpg-to-dst-converter",
+  "version": "1.0.0",
+  "description": "JPG to DST conversion service",
+  "type": "commonjs",
+  "scripts": {
+    "watcher": "ts-node scripts/watcher.ts",
+    "automate": "ts-node scripts/automate.ts",
+    "convert": "ts-node scripts/convert-dst.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  }
+}
